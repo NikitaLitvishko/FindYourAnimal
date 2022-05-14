@@ -22,10 +22,12 @@ Technology stack:
 The project solves the following tasks:
 
 - A person's search for a pet that he wants to take.
+- Finding an owner for an animal left homeless.
 
 Additional fault tolerance requirements:
 
 - The service of the animal retrieval service should not be disrupted by failures, delays, or lack of Internet connection. If the connection is lost, the service enters the offline mode of accumulation of input data until the connection is restored.
+- Upon receipt of input data, the service additionally encrypts them before saving them on its servers. This is necessary in order to prevent data from being read by attackers.
 
 ---
 
