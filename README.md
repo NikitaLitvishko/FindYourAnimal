@@ -39,6 +39,18 @@ Functions available to the human user:
 
 - User registration
 - Authorization
-- Send a chat message
+- Send instant messages
 - Search for animals
+- Editing information
+- Ability to respond to the preferences of the animal
+
+Functions available to the user representing the animal:
+
+- Registration
+- Authorization
+- Creating an animal questionnaire
+- Editing information
+- People's preferences
+- Search for a person
+- Start a chat (subject to human consent)
 
