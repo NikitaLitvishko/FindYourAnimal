@@ -11,18 +11,19 @@
     "prettier:write": "prettier --write \"**/*.js\"",
     "test": "jest",
     "test:watch": "jest --watch",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NikitaLitvishko/FindYourAnimal.git"
+    "url": "git+https://github.com/NikitaLitvishko/FindYourAnimal"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NikitaLitvishko/FindYourAnimal.git"
+    "url": "https://github.com/NikitaLitvishko/FindYourAnimal/issues"
   },
-  "homepage": "https://github.com/NikitaLitvishko/FindYourAnimal.git",
+  "homepage": "https://github.com/NikitaLitvishko/FindYourAnimal#readme",
   "devDependencies": {
     "eslint": "^8.3.0",
     "eslint-config-prettier": "^8.3.0",
@@ -30,6 +31,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^7.0.4",
     "jest": "^27.4.3",
+    "nodemon": "^2.0.15",
     "prettier": "^2.5.0",
     "supertest": "^6.1.6"
   },

@@ -14,7 +14,7 @@ CREATE UNIQUE INDEX akUsersEmail ON Users (Email);
 CREATE TABLE PetOwners (
   Id            serial,
   Phone         varchar(12),
-  Description   text,
+  Description   varchar(256),
   Location      varchar(256),
   Whome         varchar(256),
   Age           integer,
@@ -29,7 +29,7 @@ ALTER TABLE PetOwners ADD CONSTRAINT fkPetOwnersUserId FOREIGN KEY (UserId) REFE
 CREATE TABLE PetFinders (
   Id            serial,
   Phone         varchar(12),
-  Description   text,
+  Description   varchar(256),
   Location      varchar(256),
   Whome         varchar(256),
   Age           integer,
@@ -42,8 +42,8 @@ ALTER TABLE PetFinders ADD CONSTRAINT fkPetFindersUserId FOREIGN KEY (UserId) RE
 
 CREATE TABLE Dialogs (
   Id        serial,
-  User1     text NOT NULL,
-  User2     text NOT NULL
+  User1     varchar(256) NOT NULL,
+  User2     varchar(256) NOT NULL
 );
 
 ALTER TABLE Dialogs ADD CONSTRAINT fkDialogsUser1 FOREIGN KEY (User1) REFERENCES Users (Email) ON DELETE CASCADE;
@@ -52,13 +52,13 @@ ALTER TABLE Dialogs ADD CONSTRAINT pkDialogs PRIMARY KEY (Id);
 
 CREATE TABLE Messages (
   Id        serial,
-  User      text NOT NULL,
+  User1     text NOT NULL,
   DialogId  integer NOT NULL,
   Content   text NOT NULL,
-  CreatedAt TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  CreatedAt TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
-ALTER TABLE Messages ADD CONSTRAINT fkMessageUsers1 FOREIGN KEY (User) REFERENCES Users (Email) ON DELETE CASCADE;
+ALTER TABLE Messages ADD CONSTRAINT fkMessageUsers1 FOREIGN KEY (User1) REFERENCES Users (Email) ON DELETE CASCADE;
 ALTER TABLE Messages ADD CONSTRAINT fkMessageDialogsId FOREIGN KEY (DialogId) REFERENCES Dialogs (Id) ON DELETE CASCADE;
 
 CREATE TABLE Pets (
