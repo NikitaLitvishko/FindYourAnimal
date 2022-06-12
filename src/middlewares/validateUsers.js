@@ -1,3 +1,11 @@
+const EMAIL_REGEX = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
+
+const isEmailValid = (email) => {
+  return email.match(EMAIL_REGEX) ? true : false;
+};
+const isPasswordValid = (password) => {
+  return password.length < 6 ? false : true;
+};
 const validateSignUp = (req, res, next) => {
   if (!req.body.user) {
     res.status(400).send();
@@ -28,7 +36,7 @@ const validateSignIn = (req, res, next) => {
   next();
 };
 
-const validateAssigning = (req, res, next) => {
+const validateDescriprion = (req, res, next) => {
   if (!req.body.userInfo) {
     res.status(400).send();
     return;
@@ -41,12 +49,4 @@ const validateAssigning = (req, res, next) => {
   next();
 };
 
-const isEmailValid = (email) => {
-  const EMAIL_REGEX = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+\.([A-Za-z]{2,4})$/;
-  return email.match(EMAIL_REGEX) ? true : false;
-};
-const isPasswordValid = (password) => {
-  return password < 6 ? false : true;
-};
-
-module.exports = { validateSignUp, validateSignIn, validateAssigning };
+module.exports = { validateSignUp, validateSignIn, validateDescriprion };

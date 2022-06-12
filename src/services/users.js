@@ -25,7 +25,7 @@ const signin = async (user) => {
 const logout = async (token) => {
   const foundUser = await User.findByToken(token);
   await User.updateUserToken(foundUser.id, null);
-  foundUser.token = token;
+  delete foundUser.token;
   return { user: foundUser };
 };
 

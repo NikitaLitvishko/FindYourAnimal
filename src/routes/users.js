@@ -4,14 +4,14 @@ const { authorized } = require('../middlewares/authorized');
 const {
   validateSignUp,
   validateSignIn,
-  validateAssigning,
+  validateDescriprion,
 } = require('../middlewares/validateUsers');
 
 router.post('/signup', validateSignUp, signup);
 router.put('/signin', validateSignIn, signin);
 router.use(authorized);
 router.put('/logout', logout);
-router.post('/assign', validateAssigning, assign);
+router.post('/assign', validateDescriprion, assign);
 router.get('/', getUsers);
 router.get('/:id', getUser);
 

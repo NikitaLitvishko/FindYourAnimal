@@ -9,13 +9,15 @@ const getUserDialogs = async (req, res) => {
 
 const getDialog = async (req, res) => {
   const { dialogId } = req.params;
-  const dialog = await dialogsService.getDialog(dialogId);
+  const { authorization: token } = req.headers;
+  const dialog = await dialogsService.getDialog(token, dialogId);
   res.status(200).json(dialog);
 };
 
 const createDialog = async (req, res) => {
-  const { userId, companionId } = req.body;
-  const { dialog, err } = await dialogsService.createDialog(userId, companionId);
+  const { companionEmail } = req.body;
+  const { authorization: token } = req.headers;
+  const { dialog, err } = await dialogsService.createDialog(token, companionEmail);
   if (err) res.status(err.status).send();
   else res.status(200).json(dialog);
 };

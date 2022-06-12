@@ -54,12 +54,7 @@ const hashPassword = (password) =>
     });
   });
 
-let defaultHash;
-hashPassword('').then((hash) => {
-  defaultHash = hash;
-});
-
-const checkPassword = (password, hash = defaultHash) =>
+const checkPassword = (password, hash) =>
   new Promise((resolve, reject) => {
     const parsedHash = deserializeHash(hash);
     const len = parsedHash.hash.length;
