@@ -50,17 +50,8 @@ const getUsers = async (token, skip = 0, take = USERS_PER_PAGE) => {
 
 const getUser = async (id) => {
   const foundUser = await User.findById(id);
-  if (foundUser.type === 'owner') {
-    return {
-      ...foundUser,
-      ...(await User.findPetOwnerByUserId(id)),
-    };
-  } else {
-    return {
-      ...foundUser,
-      ...(await User.findPetFinderByUserId(id)),
-    };
-  }
+  const instance = await (foundUser.type = 'owner' ? User.findPetOwnerByUserId(id) : User.findPetFinderByUserId(id));
+  return { ...foundUser, ...instance};
 };
 
 module.exports = {
